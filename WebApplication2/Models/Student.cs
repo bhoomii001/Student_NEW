@@ -15,8 +15,9 @@ namespace WebApplication2.Models
 
         public string Age { get; set; }
 
+//CONNECTION STRING
         SqlConnection con = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Bhoomi Dangar\\Downloads\\Student_NEW\\Student_NEW\\WebApplication2\\AppData\\Student_Demo.mdf;Integrated Security=True");
-
+        
         public List<Student> getData(string id)
         {
             List<Student> lstStu = new List<Student>();
