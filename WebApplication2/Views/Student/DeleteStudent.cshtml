@@ -1,0 +1,66 @@
+﻿@model WebApplication2.Models.Student
+@{
+    ViewData["Title"] = "DeleteStudent";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="card">
+    <div class="card-header bg-success text-white text-uppercase">
+
+        <h4>Delete Student</h4>
+    </div>
+
+    <div class="card-body">
+        <form asp-action="DeleteStudent" asp-controller="Student" method="post">
+
+            <input type="hidden" asp-for="Id" />
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Name" class="label-control"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Email" class="label-control"></label>
+                        <input asp-for="Email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Address">
+                    Address
+                </label>
+                <input type="text" asp-for="Address" class="form-control" id="Address">
+                <span asp-validation-for="Address" class="text-danger"></span>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label asp-for="Age" class="label-control"></label>
+                        <input type="number" asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <br />
+            <div class="form-group">
+                <button type="submit" value="Delete" class="btn btn-success rounded- 0">Delete</button>
+            </div>
+
+        </form>
+        @if (TempData["msg"] != null)
+        {
+            <script>
+                alert('@TempData["msg"].ToString();'); window.location.href = "@Url.Action("Index","Student")";
+            </script>
+        }
+    </div>
+</div>
